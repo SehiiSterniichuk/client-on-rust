@@ -13,7 +13,7 @@ impl FromStr for Status {
             "DONE" => Ok(Status::DONE),
             "RUNNING" => Ok(Status::RUNNING),
             "WAITING" => Ok(Status::WAITING),
-            _ => Err(()), // Or you can return a custom error type instead of ()
+            _ => Err(()),
         }
     }
 }

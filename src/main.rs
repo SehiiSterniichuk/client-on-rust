@@ -40,10 +40,10 @@ fn main() {
         CPU_LOGICAL_CORES * 8,
         CPU_LOGICAL_CORES * 4,
         1,
-        // MIN_THREADS,
-        // CPU_CORES,
-        // CPU_LOGICAL_CORES,
-        // CPU_LOGICAL_CORES * 2,
+        MIN_THREADS,
+        CPU_CORES,
+        CPU_LOGICAL_CORES,
+        CPU_LOGICAL_CORES * 2,
     ];
 
     let dimension_numbers: Vec<i32> = vec![
@@ -56,6 +56,14 @@ fn main() {
     ];
 
     thread::sleep(Duration::from_secs(1));
+    /*
+    Double Colon Operator (::):
+Used to access associated items of a module, such as constants, functions, or types (structs, enums, traits).
+Used to access associated functions of a struct, enum, or trait without an instance.
+Used to access associated constants of a struct, enum, or trait.
+Used to access methods on a type itself (static methods).
+Example: std::vec::Vec::new(), String::from("hello").
+    */
     let mut counter: i32 = 0;
     let mut pool = Pool::new(6);
     pool.scoped(|scope| {

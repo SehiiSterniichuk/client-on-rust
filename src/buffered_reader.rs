@@ -67,16 +67,19 @@ impl<'a> BufferedReader<'a> {
     }
 
     pub fn read_matrix(&mut self, size: usize, client: &str) -> std::io::Result<Vec<Vec<f64>>> {
-        let mut array = vec![vec![0.0; size]; size];
+        let mut array = Vec::with_capacity(size);
         let start = std::time::Instant::now();
+
         for i in 0..size {
-            for j in 0..size {
+            let mut double_row = Vec::with_capacity(size);
+            for _ in 0..size {
                 let v = self.reader.read_f64::<LittleEndian>()?;
-                array[i][j] = v;
+                double_row.push(v);
             }
             if size >= 2000 && i % 1000 == 0 {
                 println!("Reading matrix of the size: {}, row: {}", size, i);
             }
+            array.push(double_row);
         }
         let finish = start.elapsed().as_micros();
         println!("Time to read: {} {}", finish, client);
