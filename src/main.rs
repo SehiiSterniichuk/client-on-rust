@@ -37,20 +37,20 @@ fn main() {
     const MIN_THREADS: i32 = CPU_CORES / 2;
     let thread_numbers: Vec<i32> = vec![
         CPU_LOGICAL_CORES * 16,
-        CPU_LOGICAL_CORES * 8,
-        CPU_LOGICAL_CORES * 4,
-        1,
-        MIN_THREADS,
-        CPU_CORES,
-        CPU_LOGICAL_CORES,
-        CPU_LOGICAL_CORES * 2,
+        // CPU_LOGICAL_CORES * 8,
+        // CPU_LOGICAL_CORES * 4,
+        // 1,
+        // MIN_THREADS,
+        // CPU_CORES,
+        // CPU_LOGICAL_CORES,
+        // CPU_LOGICAL_CORES * 2,
     ];
 
     let dimension_numbers: Vec<i32> = vec![
-        MIN_THREADS * 256 * 4,
+        // MIN_THREADS * 256 * 4,
         // MIN_THREADS * 256 * 16,
         // MIN_THREADS * 256 / 2,
-        MIN_THREADS * 256 * 2,
+        // MIN_THREADS * 256 * 2,
         // MIN_THREADS * 256 * 8,
         MIN_THREADS * 256,
     ];

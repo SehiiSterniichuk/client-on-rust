@@ -1,5 +1,5 @@
 use crate::config::response_type::ResponseType;
-use byteorder::{ReadBytesExt, LittleEndian};
+use byteorder::{ReadBytesExt, BigEndian};
 use std::net::{TcpStream};
 use std::io::{BufRead, BufReader};
 
@@ -73,7 +73,7 @@ impl<'a> BufferedReader<'a> {
         for i in 0..size {
             let mut double_row = Vec::with_capacity(size);
             for _ in 0..size {
-                let v = self.reader.read_f64::<LittleEndian>()?;
+                let v = self.reader.read_f64::<BigEndian>()?;
                 double_row.push(v);
             }
             if size >= 2000 && i % 1000 == 0 {
